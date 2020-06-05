@@ -184,6 +184,20 @@ func NewLabelPackage() BoolFlag {
 	return newLabels
 }
 
+var memoryOptimizedFill = MakeBoolFlag(
+	"Memory Optimized Fill",
+	"memoryOptimizedFill",
+	"Query Team",
+	false,
+	Temporary,
+	false,
+)
+
+// MemoryOptimizedFill - Enable the memory optimized fill()
+func MemoryOptimizedFill() BoolFlag {
+	return memoryOptimizedFill
+}
+
 var all = []Flag{
 	appMetrics,
 	backendExample,
@@ -198,6 +212,7 @@ var all = []Flag{
 	pushDownGroupAggregateFirst,
 	pushDownGroupAggregateLast,
 	newLabels,
+	memoryOptimizedFill,
 }
 
 var byKey = map[string]Flag{
@@ -214,4 +229,5 @@ var byKey = map[string]Flag{
 	"pushDownGroupAggregateFirst":  pushDownGroupAggregateFirst,
 	"pushDownGroupAggregateLast":   pushDownGroupAggregateLast,
 	"newLabels":                    newLabels,
+	"memoryOptimizedFill":          memoryOptimizedFill,
 }

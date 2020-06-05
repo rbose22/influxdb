@@ -103,3 +103,9 @@
   contact: Alirie Gray
   lifetime: temporary
 
+- name: Memory Optimized Fill
+  description: Enable the memory optimized fill()
+  key: memoryOptimizedFill
+  default: false
+  contact: Query Team
+  lifetime: temporary
