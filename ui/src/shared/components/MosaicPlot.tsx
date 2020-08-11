@@ -1,6 +1,6 @@
 // Libraries
 import React, {FunctionComponent} from 'react'
-import {Config, Table} from '@influxdata/giraffe'
+import {Config, Table, LayerTypes} from '@influxdata/giraffe'
 
 // Components
 import EmptyGraphMessage from 'src/shared/components/EmptyGraphMessage'
@@ -54,7 +54,12 @@ const MosaicPlot: FunctionComponent<Props> = ({
 }) => {
   const fillColumns = storedFill || []
   const xColumn = storedXColumn || defaultXColumn(table)
-  const yColumn = storedYColumn[0] || mosaicYcolumn(table)
+  let yColumn
+  if (storedYColumn) {
+    yColumn = storedYColumn[0]
+  } else {
+    yColumn = mosaicYcolumn(table)
+  }
 
   const columnKeys = table.columnKeys
 

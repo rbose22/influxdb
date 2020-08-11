@@ -150,9 +150,8 @@ export const getMosaicYColumnSelection = (state: AppState): string => {
   const {table} = getVisTable(state)
   const preferredYColumnKey = get(
     getActiveTimeMachine(state),
-    'view.properties.ySeriesColumns'
+    'view.properties.yColumn'
   )
-
   return mosaicYcolumn(table, preferredYColumnKey)
 }
 
@@ -298,6 +297,7 @@ export const getSaveableView = (state: AppState): QueryView & {id?: string} => {
 
   // TODO: remove all of these conditionals
   if (saveableView.properties.type === 'mosaic') {
+    console.log('[getMosaicYColumnSelection(state)]', [getMosaicYColumnSelection(state)])
     saveableView = {
       ...saveableView,
       properties: {
